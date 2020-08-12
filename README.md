@@ -48,7 +48,7 @@ $ Press Ctrl+C to quit
 
 ### References ###
 #### OpenAPI Specification ####
-* see /src/main/api/api.yaml
+* see [api.yaml](src/main/api/api.yaml)
 
 #### Other Libraries Used ####
 Thymeleaf Template Engine
