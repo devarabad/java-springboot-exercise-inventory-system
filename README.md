@@ -35,7 +35,7 @@ jdbc:h2:mem:testdb
 
 # Connect to the database using the default credentials
 ```
-![Inventory System](docs/screenshots/h2_console_connect.png)
+<img src="docs/screenshots/h2_console_connect.png" width="400" height="305">
 
 5.Stop the application
 ```
