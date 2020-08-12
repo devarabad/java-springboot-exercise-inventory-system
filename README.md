@@ -28,7 +28,7 @@ $ curl --location --request GET 'http://localhost:8080/items/types'
 * _This is used for testing and debugging purposes only_
 ```
 # Open the H2 database console in browser
-http://localhost:8080/h2-console in browser
+http://localhost:8080/h2-console
 
 # Set the JDBC url to
 jdbc:h2:mem:testdb
