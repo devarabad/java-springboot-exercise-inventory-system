@@ -1,0 +1,477 @@
+openapi: 3.0.0
+info:
+  title: Inventory System
+  description: Training Exercise Application - Inventory System
+  version: 0.0.1
+  x-logo:
+    url: 'http://localhost:8080/spring-boot-logo.png'
+    altText: Inventory System
+servers:
+  - url: http://localhost:8080/
+    description: Internal development server
+  - url: http://testing-api.example.com
+    description: Main testing server
+tags:
+  - name: API
+    description: API information
+  - name: Item
+    description: Item transactions
+  - name: Item Type
+    description: Item type transactions
+  - name: item_model
+    x-displayName: Item Model
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/Item" />
+  - name: item_type_model
+    x-displayName: Item Type Model
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/ItemType" />
+  - name: resource_message_model
+    x-displayName: Resource Message Model
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/ResourceMessage" />
+x-tagGroups:
+  - name: General
+    tags:
+      - API
+  - name: Transactions
+    tags:
+      - Item
+      - Item Type
+  - name: Models
+    tags:
+      - item_model
+      - item_type_model
+      - resource_message_model
+
+paths:
+  /:
+    get:
+      summary: Get the api information
+      description: Returns the api name and version.
+      tags:
+        - API
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  version:
+                    type: string
+
+  /items:
+    get:
+      summary: Get all the item
+      description: Returns all the items.
+      tags:
+        - Item
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Item"
+    post:
+      summary: Add an item
+      description: Returns the added item.
+      tags:
+        - Item
+      requestBody:
+        description: The item information.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/Item"
+  /items/{id}:
+    get:
+      summary: Get an item
+      description: Returns the item.
+      tags:
+        - Item
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+            format: int64
+          required: true
+      responses:
+        '200':
+          description: A JSON array of user names
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/Item"
+    put:
+      summary: Update an item
+      description: Returns the updated item.
+      tags:
+        - Item
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+            format: int64
+          required: true
+      requestBody:
+        description: The item information.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/Item"
+    delete:
+      summary: Delete an item
+      description: Returns 1 if deleted and 0 if not.
+      tags:
+        - Item
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+            format: int64
+          required: true
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            text/plain:
+              schema:
+                type: integer
+                format: int32
+                example: 1
+  /items/{id}/activate:
+    post:
+      summary: Activate an item
+      description: Returns a resource message.
+      tags:
+        - Item
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+            format: int64
+          required: true
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/ResourceMessage"
+  /items/{id}/deactivate:
+    post:
+      summary: Deactivate an item
+      description: Returns a resource message.
+      tags:
+        - Item
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+            format: int64
+          required: true
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/ResourceMessage"
+  /items/count:
+    post:
+      summary: Get the item total count
+      description: Returns the total count of the items (all or by type).
+      tags:
+        - Item
+      parameters:
+        - in: query
+          name: typeId
+          schema:
+            type: integer
+            format: int64
+          required: false
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            text/plain:
+              schema:
+                type: integer
+                format: int64
+                example: 1520
+  /items/cost:
+    post:
+      summary: Get the item total cost
+      description: Returns the total cost of the items (all or by type).
+      tags:
+        - Item
+      parameters:
+        - in: query
+          name: typeId
+          schema:
+            type: integer
+            format: int64
+          required: false
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            text/plain:
+              schema:
+                type: number
+                format: double
+                example: 135.53
+  /items/types:
+    get:
+      summary: Get all the item type
+      description: Returns all the item types.
+      tags:
+        - Item Type
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ItemType"
+    post:
+      summary: Add an item type
+      description: Returns the added item type.
+      tags:
+        - Item Type
+      requestBody:
+        description: The item type information.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemType'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/ItemType"
+  /items/types/{id}:
+    get:
+      summary: Get an item type
+      description: Returns the item type.
+      tags:
+        - Item Type
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+            format: int64
+          required: true
+      responses:
+        '200':
+          description: A JSON array of user names
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/ItemType"
+    put:
+      summary: Update an item type
+      description: Returns the updated item type.
+      tags:
+        - Item Type
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+            format: int64
+          required: true
+      requestBody:
+        description: The item type information.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemType'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/ItemType"
+    delete:
+      summary: Delete an item type
+      description: |
+        Returns 1 if deleted and 0 if not.
+        ***
+        _**Note:** This will also delete items which are referenced to the item type._
+      tags:
+        - Item Type
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+            format: int64
+          required: true
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            text/plain:
+              schema:
+                type: integer
+                format: int32
+                example: 1
+  /items/types/{id}/activate:
+    post:
+      summary: Activate an item type
+      description: Returns a resource message.
+      tags:
+        - Item Type
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+            format: int64
+          required: true
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/ResourceMessage"
+  /items/types/{id}/deactivate:
+    post:
+      summary: Deactivate an item type
+      description: Returns a resource message.
+      tags:
+        - Item Type
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+            format: int64
+          required: true
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/ResourceMessage"
+
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        cost:
+          type: number
+          format: double
+        count:
+          type: integer
+          format: int64
+        active:
+          type: boolean
+        type:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
+              readOnly: true
+        createdDate:
+          type: string
+          format: date
+          readOnly: true
+        modifiedDate:
+          type: string
+          readOnly: true
+          format: date
+    ItemType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        cost:
+          type: number
+          format: double
+        active:
+          type: boolean
+        createdDate:
+          type: string
+          format: date
+          readOnly: true
+        modifiedDate:
+          type: string
+          readOnly: true
+          format: date
+    ResourceMessage:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+        code:
+          type: string

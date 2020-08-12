@@ -1,0 +1,412 @@
+{
+	"info": {
+		"_postman_id": "df2a8f56-e616-454b-9fc0-727802e6b470",
+		"name": "Spring Boot Training Exercise",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "springboot-inventory-system-api",
+			"item": [
+				{
+					"name": "api-get-info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item-type_get-all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/types",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item-type_get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/types/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"types",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item-type_add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Sando\",\n  \"description\": \"Sando\",\n  \"cost\": 2.20,\n  \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/items/types",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item-type_update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"SandoX\",\n  \"description\": \"Sando\",\n  \"cost\": 2.50,\n  \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/items/types/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"types",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item-type_delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/types/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"types",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item-type_activate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/types/1/activate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"types",
+								"1",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item-type_deactivate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/types/1/deactivate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"types",
+								"1",
+								"deactivate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item_get-all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item_get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item_add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Skinny Jeans\",\n  \"description\": \"Jeans\",\n  \"cost\": 24.10,\n  \"count\": 250,\n  \"active\": true,\n  \"type\": {\n    \"id\": 3\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/items",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item_update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Skinny Jeans X\",\n  \"description\": \"Jeans\",\n  \"cost\": 24.20,\n  \"count\": 250,\n  \"active\": false,\n  \"type\": {\n    \"id\": 3\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/items/13",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item_delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/13",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item_activate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/1/activate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"1",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item_deactivate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/1/deactivate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"1",
+								"deactivate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item_get-total-count-all-item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/count",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item_get-total-count-by-type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/count?typeId=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"count"
+							],
+							"query": [
+								{
+									"key": "typeId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item_get-total-cost-all-item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/cost",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"cost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item_get-total-cost-by-type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/cost?typeId=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"cost"
+							],
+							"query": [
+								{
+									"key": "typeId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
