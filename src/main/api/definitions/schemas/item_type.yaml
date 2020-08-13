@@ -1,0 +1,24 @@
+ItemType:
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int64
+      readOnly: true
+    name:
+      type: string
+    description:
+      type: string
+    cost:
+      type: number
+      format: double
+    active:
+      type: boolean
+    createdDate:
+      type: string
+      format: date
+      readOnly: true
+    modifiedDate:
+      type: string
+      readOnly: true
+      format: date

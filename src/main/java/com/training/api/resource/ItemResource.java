@@ -56,7 +56,7 @@ public class ItemResource
     try
     {
       ItemInfo addedItemInfo = itemService.addItem(itemInfo);
-      return new ResponseEntity<>(addedItemInfo, HttpStatus.OK);
+      return new ResponseEntity<>(addedItemInfo, HttpStatus.CREATED);
     }
     catch (IllegalArgumentException e)
     {
