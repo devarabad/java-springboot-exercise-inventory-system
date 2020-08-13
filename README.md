@@ -8,7 +8,7 @@
 ## Getting Started ##
 1. To run the application, open a terminal and execute the gradle boot run
 ```
-# Mac|Linux
+# Mac | Linux
 $ ./gradlew bootRun
 ```
 
@@ -17,14 +17,15 @@ $ ./gradlew bootRun
 $ curl http://localhost:8081
 ```
 
-3. Transact by calling a valid endpoint.
-* See [API Documentation](#api-documentation)
-* Example
+3. Transact by calling a valid endpoint
+* You can import the Postman collection [here](docs/postman)
+* Or view the [API Documentation](#api-documentation)
 ```
+# Example
 $ curl --location --request GET 'http://localhost:8080/items/types'
 ```
 
-4. (Optional) View the database.
+4. (Optional) View the database
 * _This is used for testing and debugging purposes only_
 ```
 # Open the H2 database console in browser
@@ -43,7 +44,7 @@ $ Press Ctrl+C to quit
 ```
 
 ## API Documentation ##
-1. Open http://localhost:8080/index.html in browser
+Open http://localhost:8080/index.html in browser
 ![Inventory System](docs/screenshots/api_documentation_transactions.png)
 
 ## References ##
