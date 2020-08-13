@@ -85,37 +85,44 @@ public class ItemTypeInfo
       this.id = id;
     }
 
-    public ItemTypeInfoBuilder name(String name) {
+    public ItemTypeInfoBuilder name(String name)
+    {
       this.name = name;
       return this;
     }
 
-    public ItemTypeInfoBuilder description(String description) {
+    public ItemTypeInfoBuilder description(String description)
+    {
       this.description = description;
       return this;
     }
 
-    public ItemTypeInfoBuilder cost(Double cost) {
+    public ItemTypeInfoBuilder cost(Double cost)
+    {
       this.cost = cost;
       return this;
     }
 
-    public ItemTypeInfoBuilder active(Boolean active) {
+    public ItemTypeInfoBuilder active(Boolean active)
+    {
       this.active = active;
       return this;
     }
 
-    public ItemTypeInfoBuilder createdDate(Date createdDate) {
+    public ItemTypeInfoBuilder createdDate(Date createdDate)
+    {
       this.createdDate = createdDate;
       return this;
     }
 
-    public ItemTypeInfoBuilder modifiedDate(Date modifiedDate) {
+    public ItemTypeInfoBuilder modifiedDate(Date modifiedDate)
+    {
       this.modifiedDate = modifiedDate;
       return this;
     }
 
-    public ItemTypeInfo build() {
+    public ItemTypeInfo build()
+    {
       return new ItemTypeInfo(id
                               , name
                               , description

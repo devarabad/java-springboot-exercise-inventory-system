@@ -12,7 +12,7 @@ public abstract
   implements  IModelConverter<ResourceModel, DataModel>
 {
   @Override
-  public abstract ResourceModel convertToResourceModel(DataModel o);
+  public abstract ResourceModel convertToResourceModel(DataModel dataModel);
 
   /**
    * Converts the DataModel List to ResourceModel List
@@ -22,13 +22,12 @@ public abstract
   public List<ResourceModel> convertToResourceModelList(List<DataModel> dataModelList)
   {
     if (dataModelList == null)
-    {
       return null;
-    }
 
     List<ResourceModel> resourceModelList = new LinkedList<>();
 
-    dataModelList.forEach(dataModel ->
+    dataModelList.forEach(
+      dataModel ->
       {
         resourceModelList.add(convertToResourceModel(dataModel));
       });
@@ -44,16 +43,15 @@ public abstract
   public List<ResourceModel> convertToResourceModelList(Iterable<DataModel> dataModelIterable)
   {
     if (dataModelIterable == null)
-    {
       return null;
-    }
 
     List<ResourceModel> resourceModelList = new LinkedList<>();
 
-    dataModelIterable.forEach(dataModel ->
-    {
-      resourceModelList.add(convertToResourceModel(dataModel));
-    });
+    dataModelIterable.forEach(
+      dataModel ->
+      {
+        resourceModelList.add(convertToResourceModel(dataModel));
+      });
 
     return resourceModelList;
   }

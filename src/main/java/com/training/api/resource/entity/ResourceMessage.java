@@ -6,9 +6,9 @@ package com.training.api.resource.entity;
  */
 public class ResourceMessage
 {
-  private final String status;
-  private final String message;
-  private final String code;
+  private final String  status;
+  private final String  message;
+  private final String  code;
 
   public ResourceMessage( String status
                           , String message
@@ -46,12 +46,14 @@ public class ResourceMessage
       this.message = message;
     }
 
-    public ResourceMessageBuilder code(String code) {
+    public ResourceMessageBuilder code(String code)
+    {
       this.code = code;
       return this;
     }
 
-    public ResourceMessage build() {
+    public ResourceMessage build()
+    {
       return new ResourceMessage( status
                                   , message
                                   , code);

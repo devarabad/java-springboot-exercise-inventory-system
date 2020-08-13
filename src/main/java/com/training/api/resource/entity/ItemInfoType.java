@@ -37,12 +37,14 @@ public class ItemInfoType
       this.id = id;
     }
 
-    public ItemInfoTypeBuilder name(String name) {
+    public ItemInfoTypeBuilder name(String name)
+    {
       this.name = name;
       return this;
     }
 
-    public ItemInfoType build() {
+    public ItemInfoType build()
+    {
       return new ItemInfoType(id, name);
     }
   }

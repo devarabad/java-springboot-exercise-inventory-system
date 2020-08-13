@@ -15,9 +15,7 @@ public class ItemTypeModelConverter extends ModelConverter<ItemTypeInfo,ItemType
   public ItemTypeInfo convertToResourceModel(ItemType itemType)
   {
     if (itemType == null)
-    {
       return null;
-    }
 
     long id             = itemType.getId();
     String name         = itemType.getName();
