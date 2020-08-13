@@ -44,7 +44,7 @@ public class ItemTypeResource
     {
       throw new ResponseStatusException(
         HttpStatus.NOT_FOUND
-        , "Item type not found.");
+        , e.getMessage());
     }
   }
 
@@ -117,7 +117,7 @@ public class ItemTypeResource
     {
       throw new ResponseStatusException(
         HttpStatus.NOT_FOUND
-        , "Nothing to activate. Item type not found.");
+        , e.getMessage());
     }
   }
 
@@ -137,7 +137,7 @@ public class ItemTypeResource
     {
       throw new ResponseStatusException(
         HttpStatus.NOT_FOUND
-        , "Nothing to deactivate. Item type not found.");
+        , e.getMessage());
     }
   }
 }

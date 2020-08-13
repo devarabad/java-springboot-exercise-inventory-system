@@ -38,15 +38,14 @@ public class ItemResource
   {
     try
     {
-      ItemInfo itemInfo     = itemService.getItem(id);
-      HttpStatus httpStatus = HttpStatus.OK;
+      ItemInfo itemInfo = itemService.getItem(id);
       return new ResponseEntity<>(itemInfo, HttpStatus.OK);
     }
     catch (IllegalArgumentException e)
     {
       throw new ResponseStatusException(
         HttpStatus.NOT_FOUND
-        , "Item not found.");
+        , e.getMessage());
     }
   }
 
@@ -119,7 +118,7 @@ public class ItemResource
     {
       throw new ResponseStatusException(
         HttpStatus.NOT_FOUND
-        , "Nothing to activate. Item not found.");
+        , e.getMessage());
     }
   }
 
@@ -139,7 +138,7 @@ public class ItemResource
     {
       throw new ResponseStatusException(
         HttpStatus.NOT_FOUND
-        , "Nothing to deactivate. Item not found.");
+        , e.getMessage());
     }
   }
 
@@ -148,7 +147,8 @@ public class ItemResource
   {
     try
     {
-      return new ResponseEntity<String>(itemService.getTotalCountOfItems(typeId).toString(), HttpStatus.OK);
+      Long totalItemCount = itemService.getTotalCountOfItems(typeId);
+      return new ResponseEntity<String>(totalItemCount.toString(), HttpStatus.OK);
     }
     catch (IllegalArgumentException e)
     {
@@ -163,7 +163,8 @@ public class ItemResource
   {
     try
     {
-      return new ResponseEntity<String>(itemService.getTotalCostOfItems(typeId).toString(), HttpStatus.OK);
+      Double totalItemCost = itemService.getTotalCostOfItems(typeId);
+      return new ResponseEntity<String>(totalItemCost.toString(), HttpStatus.OK);
     }
     catch (IllegalArgumentException e)
     {

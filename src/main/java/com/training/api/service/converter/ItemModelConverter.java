@@ -16,9 +16,7 @@ public class ItemModelConverter extends ModelConverter<ItemInfo, Item>
   public ItemInfo convertToResourceModel(Item item)
   {
     if (item == null)
-    {
       return null;
-    }
 
     long itemId         = item.getId();
     String name         = item.getName();
@@ -31,7 +29,10 @@ public class ItemModelConverter extends ModelConverter<ItemInfo, Item>
 
     long typeId         = item.getType().getId();
     String typeName     = item.getType().getName();
-    ItemInfoType type   = new ItemInfoType.ItemInfoTypeBuilder(typeId).name(typeName).build();
+    ItemInfoType type   = new ItemInfoType
+                                .ItemInfoTypeBuilder(typeId)
+                                  .name(typeName)
+                                  .build();
 
     return new ItemInfo(itemId
                         , name

@@ -6,13 +6,13 @@ package com.training.api.resource.entity;
  */
 public class ApiInfo
 {
-  private final String name;
-  private final String version;
+  private final String  name;
+  private final String  version;
 
   public ApiInfo(String name, String version)
   {
-    this.name = name;
-    this.version = version;
+    this.name     = name;
+    this.version  = version;
   }
 
   public String getName()

@@ -14,9 +14,7 @@ public class ApiConfig
   private String name;
   private String version;
 
-  public ApiConfig()
-  {
-  }
+  public ApiConfig() {}
 
   public void setName(String name)
   {
