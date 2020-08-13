@@ -1,11 +1,11 @@
 # Springboot - Inventory System #
 ![Inventory System](docs/screenshots/api_documentation_index.png)
 
-### Requirements ###
+## Requirements ##
   - JDK 8
   - Gradle
 
-### Getting Started ###
+## Getting Started ##
 1. To run the application, open a terminal and execute the gradle boot run
 ```
 # Mac|Linux
@@ -42,15 +42,15 @@ jdbc:h2:mem:testdb
 $ Press Ctrl+C to quit
 ```
 
-### API Documentation ###
+## API Documentation ##
 1. Open http://localhost:8080/index.html in browser
 ![Inventory System](docs/screenshots/api_documentation_transactions.png)
 
-### References ###
-#### OpenAPI Specification ####
+## References ##
+### OpenAPI Specification ###
 * see [api.yaml](src/main/api/api.yaml)
 
-#### Other Libraries Used ####
+### Other Libraries Used ###
 Thymeleaf Template Engine
 * https://www.thymeleaf.org/
 
