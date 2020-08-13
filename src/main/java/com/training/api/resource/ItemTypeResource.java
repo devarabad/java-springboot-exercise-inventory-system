@@ -54,7 +54,7 @@ public class ItemTypeResource
     try
     {
       ItemTypeInfo addedItemTypeInfo = itemTypeService.addItemType(itemTypeInfo);
-      return new ResponseEntity<>(addedItemTypeInfo, HttpStatus.OK);
+      return new ResponseEntity<>(addedItemTypeInfo, HttpStatus.CREATED);
     }
     catch (IllegalArgumentException e)
     {
