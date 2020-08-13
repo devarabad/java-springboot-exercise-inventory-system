@@ -1,0 +1,9 @@
+ResourceMessage:
+  type: object
+  properties:
+    status:
+      type: string
+    message:
+      type: string
+    code:
+      type: string
